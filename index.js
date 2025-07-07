@@ -28,9 +28,12 @@ app.get('/api/voice/suggestion', (req, res) => { /* ... */ });
 
 // Suno Prompt
 app.get('/api/suno/prompt', (req, res) => { /* ... */ });
+const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
   console.log(`🔥 Halolance API is live on port ${PORT}`);
+});
+
 });
 app.get('/', (req, res) => {
   res.send('🟢 Halolance API is running.');
