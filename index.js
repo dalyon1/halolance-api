@@ -3,41 +3,48 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.get('/api/rapline', (req, res) => {
-  const target = req.query.target || 'them';
+// Route: Freestyle bar generator
+app.get('/api/freestyle', (req, res) => {
+  const target = req.query.target || 'your foe';
   const bars = [
-    `I don't battle ${target}, I bury the echo of their voice.`
+    `They talk tough 'til I black out the sun.`,
+    `You can't measure this level — I already won.`,
+    `Every line’s a landmine when I'm in the zone.`,
+    `I don't battle ${target}, I bury the echo of their tone.`
   ];
-  res.json({ target, bar: bars[Math.floor(Math.random() * bars.length)] });
+  const line = bars[Math.floor(Math.random() * bars.length)];
+  res.json({ target, bar: line });
 });
 
-// Beat DNA
+// Route: Beat DNA (placeholder)
 app.get('/api/beats/generate', (req, res) => {
-  const beats = [ /* ...same as before... */ ];
-  res.json(beats[Math.floor(Math.random() * beats.length)]);
+  const beats = ['orchestral-glitch', 'drillwave', 'trap noir', 'gothic grime'];
+  const pick = beats[Math.floor(Math.random() * beats.length)];
+  res.json({ beat: pick });
 });
 
-// Art Prompt
-app.get('/api/art/prompt', (req, res) => { /* ... */ });
+// Placeholder routes
+app.get('/api/art/prompt', (req, res) => {
+  res.json({ message: 'Art prompt route coming soon!' });
+});
 
-// Video Script
-app.get('/api/video/script', (req, res) => { /* ... */ });
+app.get('/api/video/script', (req, res) => {
+  res.json({ message: 'Video script route coming soon!' });
+});
 
-// Voice Suggestion
-app.get('/api/voice/suggestion', (req, res) => { /* ... */ });
+app.get('/api/voice/suggestion', (req, res) => {
+  res.json({ message: 'Voice suggestion route coming soon!' });
+});
 
-// Suno Prompt
-app.get('/api/suno/prompt', (req, res) => { /* ... */ });
-const PORT = process.env.PORT || 3000;
+app.get('/api/suno/prompt', (req, res) => {
+  res.json({ message: 'Suno prompt route coming soon!' });
+});
 
+// Listen
 app.listen(PORT, () => {
   console.log(`🔥 Halolance API is live on port ${PORT}`);
 });
 
-});
-app.get('/', (req, res) => {
-  res.send('🟢 Halolance API is running.');
-});
 
 // 👇 Crucial Web Binding
 app.listen(PORT, '0.0.0.0', () => {
