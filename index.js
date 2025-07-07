@@ -32,6 +32,9 @@ app.get('/api/suno/prompt', (req, res) => { /* ... */ });
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🔥 Halolance API is live on port ${PORT}`);
 });
+app.get('/', (req, res) => {
+  res.send('🟢 Halolance API is running.');
+});
 
 // 👇 Crucial Web Binding
 app.listen(PORT, '0.0.0.0', () => {
